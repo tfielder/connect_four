@@ -14,4 +14,9 @@ class BoardTest < Minitest::Test
     assert_equal "ABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n", board.print_board
   end
 
+  def test_has_board_array
+    board = Board.new
+    assert_equal [], board.board_array
+  end
+
 end

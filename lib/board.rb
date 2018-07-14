@@ -1,6 +1,8 @@
 class Board
-  def initialize
+  attr_reader :board_array
 
+  def initialize
+    @board_array = []
   end
 
   def print_board
