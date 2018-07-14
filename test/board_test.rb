@@ -9,7 +9,9 @@ class BoardTest < Minitest::Test
   end
 
   def test_print_board
-
+    board = Board.new
+    board.print_board
+    assert_equal "ABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n", board.print_board
   end
 
 end
