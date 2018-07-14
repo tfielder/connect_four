@@ -47,9 +47,20 @@ class BoardTest < Minitest::Test
 
     board.add_token_to_board("A", "O")
     assert_equal "O", board.board_array[0][0]
+  end
+
+  def test_adds_multiple_tokens_to_board
+    board = Board.new
+    assert board.board_array[0].none?
+
+    board.add_token_to_board("A", "O")
+    assert_equal "O", board.board_array[0][0]
 
     board.add_token_to_board("A", "O")
     assert_equal "O", board.board_array[0][1]
+
+    board.add_token_to_board("A", "X")
+    assert_equal "X", board.board_array[0][2]
   end
 
   def test_finds_first_nil_value_in_array
@@ -62,9 +73,26 @@ class BoardTest < Minitest::Test
     assert_equal 2, board.find_first_nil_value(0)
   end
 
+  def test_prints_board_after_adding_tokens
+    board = Board.new
+    board.add_token_to_board("A", "O")
+    board.add_token_to_board("A", "X")
+    board.add_token_to_board("C", "X")
+    board.print_board
+  end
+
   def test_column_full?
     board = Board.new
     assert board.board_array[0].none?
+    board.add_token_to_board("A", "O")
+    board.add_token_to_board("A", "X")
+    board.add_token_to_board("A", "X")
+    board.add_token_to_board("A", "O")
+    board.add_token_to_board("A", "X")
+    refute board.column_full?(1)
+    board.add_token_to_board("A", "X")
+    assert board.column_full?(1)
+    #return to truthy test
   end
 
 end

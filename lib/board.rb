@@ -16,6 +16,7 @@ class Board
   end
 
   def print_board
+    puts ""
     print "ABCDEFG\n"
     row = 5
     while row >= 0
@@ -48,20 +49,7 @@ class Board
   def find_first_nil_value(column)
     @board_array[column].find_index do |i|
       i == nil
-
-      #@board_array[column][i] == nil
     end
-#     array = [1, nil, nil, nil]
-# token_type = "X"
-#
-# number = array.find_index do |i|
-#         if array[i] == nil
-#           array[i] = token_type
-#         end
-# end
-# print number
-# print array
-
   end
 
   def change_letter_to_array_index(column)
