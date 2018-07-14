@@ -1,6 +1,9 @@
 class GamePlay
-  def initialize
+  attr_reader :board
 
+  def initialize(board)
+    print_welcome_message
+    @board = board
   end
 
   def print_welcome_message
