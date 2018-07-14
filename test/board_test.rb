@@ -16,19 +16,13 @@ class BoardTest < Minitest::Test
 
   def test_has_board_array
     board = Board.new
-    assert_equal [], board.board_array
+    assert_equal Array.new(7){Array.new(6)}, board.board_array
   end
 
   def test_initializes_board_array
     board = Board.new
-    empty_board = [["nil", "nil", "nil", "nil", "nil", "nil", "nil"],
-    ["nil", "nil", "nil", "nil", "nil", "nil", "nil"],
-    ["nil", "nil", "nil", "nil", "nil", "nil", "nil"],
-    ["nil", "nil", "nil", "nil", "nil", "nil", "nil"],
-    ["nil", "nil", "nil", "nil", "nil", "nil", "nil"],
-    ["nil", "nil", "nil", "nil", "nil", "nil", "nil"],
-    ["nil", "nil", "nil", "nil", "nil", "nil", "nil"]]
-    assert_equal empty_board, board.board_array
+    assert_equal Array.new(7){Array.new(6)}, board.board_array
   end
+
 
 end
