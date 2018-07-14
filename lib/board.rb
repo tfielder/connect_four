@@ -8,4 +8,8 @@ class Board
   def print_board
     "ABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n"
   end
+
+  def initialize_board_array
+
+  end
 end
