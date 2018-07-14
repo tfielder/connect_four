@@ -22,4 +22,10 @@ class GamePlayTest < Minitest::Test
     game = GamePlay.new(board)
     assert_instance_of Board, game.board
   end
+
+  def test_it_prints_board
+    board = Board.new
+    game = GamePlay.new(board)
+    assert_equal "ABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n", game.print_board
+  end
 end
