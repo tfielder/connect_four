@@ -46,8 +46,10 @@ class Board
   end
 
   def find_first_nil_value(column)
-    @board_array[column].find_index do |index|
-      @board_array[column][index] == nil
+    @board_array[column].find_index do |i|
+      i == nil
+
+      #@board_array[column][i] == nil
     end
 #     array = [1, nil, nil, nil]
 # token_type = "X"

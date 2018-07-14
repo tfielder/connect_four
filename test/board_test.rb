@@ -42,7 +42,6 @@ class BoardTest < Minitest::Test
   end
 
   def test_adds_token_to_board
-    skip
     board = Board.new
     assert board.board_array[0].none?
 
@@ -57,6 +56,10 @@ class BoardTest < Minitest::Test
     board = Board.new
     assert board.board_array[0].none?
     assert_equal 0, board.find_first_nil_value(0)
+
+    board.add_token_to_board("A", "O")
+    board.add_token_to_board("A", "X")
+    assert_equal 2, board.find_first_nil_value(0)
   end
 
   def test_column_full?
