@@ -32,24 +32,31 @@ class BoardTest < Minitest::Test
     assert_equal "ABCDEFG\n.......\n.......\n.......\n.......\n.......\nX......\n", board.board_array
   end
 
-  def test_translates_letter_to_array_index
+  def test_changes_letter_to_array_index
     board = Board.new
-    array_index = board.letter_to_array_index("A")
+    array_index = board.change_letter_to_array_index("A")
     assert_equal 0, array_index
 
-    array_index = board.letter_to_array_index("G")
+    array_index = board.change_letter_to_array_index("G")
     assert_equal 6, array_index
   end
 
   def test_adds_token_to_board
+    skip
     board = Board.new
     assert board.board_array[0].none?
 
     board.add_token_to_board("A", "O")
-    #assert_equal "O", board.board_array[0]
+    assert_equal "O", board.board_array[0][0]
 
     board.add_token_to_board("A", "O")
-    assert_equal "O", board.board_array[1]
+    assert_equal "O", board.board_array[0][1]
+  end
+
+  def test_finds_first_nil_value_in_array
+    board = Board.new
+    assert board.board_array[0].none?
+    assert_equal 0, board.find_first_nil_value(0)
   end
 
   def test_column_full?

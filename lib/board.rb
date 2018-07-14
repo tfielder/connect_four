@@ -36,12 +36,33 @@ class Board
   end
 
   def add_token_to_board(column, token_type)
-    index = letter_to_array_index(column)
-    !column_full?(index)
-      @board_array[index].push(token_type)
+    column = change_letter_to_array_index(column)
+    if !column_full?(column)
+      row = find_first_nil_value(column)
+      @board_array[column][row] = token_type
+    else
+      return false  #double check to make sure needed
+    end
   end
 
-  def letter_to_array_index(column)
+  def find_first_nil_value(column)
+    @board_array[column].find_index do |index|
+      @board_array[column][index] == nil
+    end
+#     array = [1, nil, nil, nil]
+# token_type = "X"
+#
+# number = array.find_index do |i|
+#         if array[i] == nil
+#           array[i] = token_type
+#         end
+# end
+# print number
+# print array
+
+  end
+
+  def change_letter_to_array_index(column)
     @letter_to_array[column]
   end
 
