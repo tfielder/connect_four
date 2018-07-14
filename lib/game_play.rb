@@ -4,7 +4,7 @@ class GamePlay
   def initialize(board)
     @board = board
     print_welcome_message
-    @board.print_board
+    @board.print_board      #should this occur at a higher level?
   end
 
   def print_welcome_message
