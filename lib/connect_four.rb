@@ -33,7 +33,9 @@ while game.continue_game == true
   #check for win, #check for tie
 
   #prompt waiting message
+  puts ""
   puts game.return_waiting_message
+  sleep 5
   #computer selects
   letter = ('A'..'G').to_a.sample
   #validate computer move
