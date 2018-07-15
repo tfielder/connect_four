@@ -35,6 +35,12 @@ class GamePlayTest < Minitest::Test
     assert_equal "Player 1 it's your turn.  Choose a column between A and G.", game.request_move
   end
 
+  def method_name
+    board = Board.new
+    game = GamePlay.new(board)
+    assert_equal "It's the computer's turn.", game.return_waiting_message
+  end
+
   def test_return_column_full_message
     board = Board.new
     game = GamePlay.new(board)
