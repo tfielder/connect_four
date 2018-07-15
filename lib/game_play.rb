@@ -19,6 +19,17 @@ class GamePlay
   end
 
   def get_move
+    gets.chomp
+  end
+
+  def validate_move
+    while move_valid == false
+        get_move
+        move_valid?
+    end
+  end
+
+  def move_valid?
 
   end
 
