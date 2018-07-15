@@ -18,6 +18,10 @@ class GamePlay
     "Player 1 it's your turn.  Choose a column between A and G."
   end
 
+  def get_move
+
+  end
+
   def return_waiting_message
     "It's the computer's turn."
   end
