@@ -1,8 +1,9 @@
 class GamePlay
-  attr_reader :board
+  attr_reader :board, :continue_game
 
   def initialize(board) #should you autoinitialize to not worry about implementation of new object?
     @board = board
+    @continue_game = true
   end
 
   def return_welcome_message

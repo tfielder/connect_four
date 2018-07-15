@@ -9,6 +9,7 @@ class GamePlayTest < Minitest::Test
     board = Board.new
     game = GamePlay.new(board)
     assert_instance_of GamePlay, game
+    assert_equal true, game.continue_game
   end
 
   def test_it_returns_welcome_message
