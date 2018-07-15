@@ -35,11 +35,11 @@ while game.continue_game == true
   #prompt waiting message
   puts game.return_waiting_message
   #computer selects
-  number = (0..6).rand
+  letter = ('A'..'G').to_a.sample
   #validate computer move
 
   #add computer move
-  game.board.add_token_to_board(column, "O")
+  game.board.add_token_to_board(letter, "O")
   #check for win, #check for tie
 
 end
