@@ -28,7 +28,7 @@ class BoardTest < Minitest::Test
   def test_adds_token_to_board
     board = Board.new
     board.add_token_to_board("A", "X")
-    assert_equal "ABCDEFG\n.......\n.......\n.......\n.......\n.......\nX......\n", board.return_board
+    assert_equal "\nABCDEFG\n.......\n.......\n.......\n.......\n.......\nX......\n", board.return_board
   end
 
   def test_changes_letter_to_array_index
@@ -73,17 +73,14 @@ class BoardTest < Minitest::Test
   end
 
   def test_returns_board_after_adding_tokens
-    skip
     board = Board.new
     board.add_token_to_board("A", "O")
     board.add_token_to_board("A", "X")
     board.add_token_to_board("C", "X")
-    board.return_board
-    assert_equal
+    assert_equal "\nABCDEFG\n.......\n.......\n.......\n.......\nX......\nO.X....\n", board.return_board
   end
 
   def test_column_full?
-    skip
     board = Board.new
     assert board.board_array[0].none?
     5.times { board.add_token_to_board("A", "O") }
