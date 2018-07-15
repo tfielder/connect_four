@@ -3,14 +3,13 @@ class GamePlay
 
   def initialize(board)
     @board = board
-    print_welcome_message
   end
 
-  def print_welcome_message
+  def return_welcome_message
     "Welcome to Connect Four"
   end
 
-  def print_board
+  def return_board
     @board.print_board
   end
 
