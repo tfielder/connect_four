@@ -1,4 +1,7 @@
 
+###initialize everything
+
+
 
 ###while loop to start / end GamePlay
 
