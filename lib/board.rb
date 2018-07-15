@@ -15,21 +15,21 @@ class Board
                        }
   end
 
-  def print_board
-    puts ""
-    print "ABCDEFG\n"
+  def return_board
+    board_string = "\nABCDEFG\n"
     row = 5
     while row >= 0
       @board_array.each do|column|
         if column[row] == nil
-          print "."
+          board_string << "."
         else
-          print column[row]
+          board_string << column[row]
         end
       end
-      print "\n"
+      board_string << "\n"
       row -= 1
     end
+      board_string
   end
 
   def initialize_board_array

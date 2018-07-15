@@ -1,6 +1,7 @@
 require "minitest/autorun"
 require "minitest/pride"
 require "./lib/board.rb"
+require "pry"
 
 class BoardTest < Minitest::Test
   def test_board_exists
@@ -8,11 +9,10 @@ class BoardTest < Minitest::Test
     assert_instance_of Board, board
   end
 
-  def test_print_board
-    skip
+  def test_return_board
     board = Board.new
-    printed_board = board.print_board
-    assert_equal "ABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n", printed_board
+    returned_board = board.return_board
+    assert_equal "\nABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n", returned_board
   end
 
   def test_has_board_array
@@ -26,10 +26,9 @@ class BoardTest < Minitest::Test
   end
 
   def test_adds_token_to_board
-    skip
     board = Board.new
     board.add_token_to_board("A", "X")
-    assert_equal "ABCDEFG\n.......\n.......\n.......\n.......\n.......\nX......\n", board.board_array
+    assert_equal "ABCDEFG\n.......\n.......\n.......\n.......\n.......\nX......\n", board.return_board
   end
 
   def test_changes_letter_to_array_index
@@ -73,22 +72,21 @@ class BoardTest < Minitest::Test
     assert_equal 2, board.find_first_nil_value(0)
   end
 
-  def test_prints_board_after_adding_tokens
+  def test_returns_board_after_adding_tokens
+    skip
     board = Board.new
     board.add_token_to_board("A", "O")
     board.add_token_to_board("A", "X")
     board.add_token_to_board("C", "X")
-    board.print_board
+    board.return_board
+    assert_equal
   end
 
   def test_column_full?
+    skip
     board = Board.new
     assert board.board_array[0].none?
-    board.add_token_to_board("A", "O")
-    board.add_token_to_board("A", "X")
-    board.add_token_to_board("A", "X")
-    board.add_token_to_board("A", "O")
-    board.add_token_to_board("A", "X")
+    5.times { board.add_token_to_board("A", "O") }
     refute board.column_full?(1)
     board.add_token_to_board("A", "X")
     assert board.column_full?(1)
