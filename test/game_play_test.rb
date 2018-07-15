@@ -23,7 +23,7 @@ class GamePlayTest < Minitest::Test
     assert_instance_of Board, game.board
   end
 
-  def test_it_return_board
+  def test_it_returns_board
     board = Board.new
     game = GamePlay.new(board)
     assert_equal "\nABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n", game.return_board
