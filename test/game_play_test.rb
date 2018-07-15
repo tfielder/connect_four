@@ -28,4 +28,10 @@ class GamePlayTest < Minitest::Test
     game = GamePlay.new(board)
     assert_equal "\nABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n", game.return_board
   end
+
+  def test_requests_move
+    board = Board.new
+    game = GamePlay.new(board)
+    assert_equal "Player 1 it's your turn.  Choose a column between A and G.", game.request_move
+  end
 end
