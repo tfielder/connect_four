@@ -62,7 +62,7 @@ class GamePlayTest < Minitest::Test
   def test_returns_waiting_message
     board = Board.new
     game = GamePlay.new(board)
-    assert_equal "It's the computer's turn.", game.return_waiting_message
+    assert_equal "It's the computer's turn. One moment please.", game.return_waiting_message
   end
 
   def test_return_column_full_message
