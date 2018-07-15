@@ -10,7 +10,7 @@ class GamePlay
   end
 
   def return_board
-    @board.print_board
+    @board.return_board
   end
 
 end
