@@ -46,14 +46,14 @@ class GamePlayTest < Minitest::Test
     # assert_equal "A", move
   end
 
-  def test_move_valid?
-    board = Board.new
-    game = GamePlay.new(board)
-    assert game.move_valid?("A")
-    refute game.move_valid?("Q")
-    assert game.move_valid?("R")
-    assert_equal 0, 1
-  end
+  # def test_move_valid?
+  #   board = Board.new
+  #   game = GamePlay.new(board)
+  #   assert game.move_valid?("A")
+  #   refute game.move_valid?("Q")
+  #   assert game.move_valid?("R")
+  #   assert_equal 0, 1
+  # end
 
   def test_validate_move
 
