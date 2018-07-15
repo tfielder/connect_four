@@ -17,6 +17,10 @@ class GamePlay
     "Player 1 it's your turn.  Choose a column between A and G."
   end
 
+  def return_waiting_message
+    "It's the computer's turn."
+  end
+
   def return_column_full_message
     "Sorry, that column is full. Try another."
   end
