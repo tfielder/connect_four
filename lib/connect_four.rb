@@ -27,6 +27,8 @@ while column != "-1"
   #add move to board
   game.board.add_token_to_board(column, "X")
   #print the board
+  
+
   puts game.request_move
   #check for win, #check for tie
   #prompt waiting message
