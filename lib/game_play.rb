@@ -44,7 +44,7 @@ class GamePlay
 
 
   def return_waiting_message
-    "It's the computer's turn."
+    "It's the computer's turn. One moment please."
   end
 
   def return_column_full_message
