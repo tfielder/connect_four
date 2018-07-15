@@ -82,4 +82,28 @@ class GamePlayTest < Minitest::Test
     game = GamePlay.new(board)
     assert_equal "The board is full! Nobody wins. Would you like to play again?", game.return_draw_message
   end
+
+  def test_for_check_for_win
+
+  end
+
+  def test_check_for_horizontal_win
+
+  end
+
+  def test_check_for_vertical_win
+
+  end
+
+  def test_check_for_diagonal_win
+
+  end
+
+  def test_for_check_for_tie
+
+  end
+
+  def test_for_check_board
+
+  end
 end

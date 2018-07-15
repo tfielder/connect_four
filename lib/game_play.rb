@@ -59,4 +59,30 @@ class GamePlay
   def return_draw_message
     "The board is full! Nobody wins. Would you like to play again?"
   end
+
+  def check_for_win
+    check_for_horizontal_win
+    check_for_vertical_win
+    check_for_diagonal_win
+  end
+
+  def check_for_horizontal_win
+
+  end
+
+  def check_for_vertical_win
+
+  end
+
+  def check_for_diagonal_win
+
+  end
+
+  def check_for_tie
+
+  end
+
+  def check_board
+
+  end
 end
