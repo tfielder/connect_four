@@ -19,19 +19,28 @@ class GamePlay
   end
 
   def get_move
-    gets.chomp
+    gets.chomp.upcase
   end
 
-  def validate_move
-    while move_valid == false
-        get_move
-        move_valid?
-    end
-  end
+  # def validate_move
+  #   move = get_move
+  #   valid = move_valid?(move)
+  #   while valid == false
+  #       move = get_move
+  #       valid = move_valid?(move)
+  #   end
+  #   move
+  # end
 
-  def move_valid?
-
-  end
+  # def move_valid?(move)
+  #   column_value = board.change_letter_to_array_index(move)
+  #   #binding.pry
+  #   if board.column_full?(column_value) == false
+  #     return true
+  #   else
+  #     return false
+  #   end
+  # end
 
   def return_waiting_message
     "It's the computer's turn."

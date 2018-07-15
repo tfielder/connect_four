@@ -37,18 +37,25 @@ class GamePlayTest < Minitest::Test
   end
 
   def test_gets_move
-    skip
+    # skip
+    # board = Board.new
+    # game = GamePlay.new(board)
+    # move = game.get_move
+    # assert_equal "A", move
+    # move = game.get_move
+    # assert_equal "A", move
   end
 
-  def move_valid?
+  def test_move_valid?
     board = Board.new
     game = GamePlay.new(board)
-    move = get_move
-    column_value = board.change_letter_to_array(move)
-    board.column_full?(column_value)
+    assert game.move_valid?("A")
+    refute game.move_valid?("Q")
+    assert game.move_valid?("R")
+    assert_equal 0, 1
   end
 
-  def validate_move
+  def test_validate_move
 
   end
 
