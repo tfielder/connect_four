@@ -14,26 +14,32 @@ game = GamePlay.new(board)
 print "\n"
 puts game.return_welcome_message
 
-column = "y"
+
 #
-while column != "-1"
+while game.continue_game == true
   #round loop . . . .
   #print board
   puts game.return_board
   #prompt for move
   puts game.request_move
-  #get move and validate it
+  #get move
   column = game.get_move
+  #validate the move
+
   #add move to board
   game.board.add_token_to_board(column, "X")
   #print the board
-  
-
-  puts game.request_move
+  puts game.return_board
   #check for win, #check for tie
+
   #prompt waiting message
+  puts game.return_waiting_message
   #computer selects
-  #move added
+  number = (0..6).rand
+  #validate computer move
+
+  #add computer move
+  game.board.add_token_to_board(column, "O")
   #check for win, #check for tie
 
 end
