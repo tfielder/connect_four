@@ -102,7 +102,6 @@ class BoardTest < Minitest::Test
     5.times {board.add_token_to_board("G", "X")}
     assert_equal false, board.board_full?
     board.add_token_to_board("G", "O")
-    binding.pry
     assert_equal true, board.board_full?
   end
 

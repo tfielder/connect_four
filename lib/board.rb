@@ -61,18 +61,15 @@ class Board
   end
 
   def board_full?
-
-      column_full?(index)
-
-    # full = true
-    #   (0..6).each do |column|
-    #     (0..6).each do |row|
-    #       if @board_array[column][row] == nil
-    #         full = false
-    #       end
-    #     end
-    #   end
-    # return full
+    full = true
+      (0..6).each do |column|
+        (0..5).each do |row|
+          if @board_array[column][row] == nil
+            full = false
+          end
+        end
+      end
+    return full
   end
 
 end
