@@ -84,7 +84,14 @@ class GamePlayTest < Minitest::Test
   end
 
   def test_check_for_horizontal_win
-
+    board = Board.new
+    game = GamePlay.new(board)
+    4.times do
+      ("A".."D").each do |letter|
+        board.add_token_to_board(letter,"X")
+      end
+    end
+    assert_equal true, game.check_for_horizontal_win
   end
 
   def test_check_for_vertical_win
@@ -102,7 +109,6 @@ class GamePlayTest < Minitest::Test
   def test_for_check_for_draw
     board = Board.new
     game = GamePlay.new(board)
-    
 
   end
 
