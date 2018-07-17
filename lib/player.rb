@@ -1,5 +1,5 @@
 class Player
-  def initialize
-
+  def initialize(token = "X")
+    @token = token
   end
 end
