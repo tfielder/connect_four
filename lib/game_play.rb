@@ -60,12 +60,6 @@ class GamePlay
     "The board is full! Nobody wins. Would you like to play again?"
   end
 
-  def check_for_win
-    win = false
-    checks = [check_for_horizontal_win, check_for_vertical_win, check_for_right_diagonal_win, check_for_left_diagonal_win]
-    checks.any? {|element| element == true}
-  end
-
   def check_for_horizontal_win
     win = false
     (0..5).each do |row|
@@ -112,6 +106,11 @@ class GamePlay
       end
     end
     return win
+  end
+
+  def check_for_win
+    checks = [check_for_horizontal_win, check_for_vertical_win, check_for_right_diagonal_win, check_for_left_diagonal_win]
+    checks.any? {|element| element == true}
   end
 
   def check_for_draw
