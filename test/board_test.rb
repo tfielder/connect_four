@@ -81,6 +81,7 @@ class BoardTest < Minitest::Test
   end
 
   def test_column_full?
+    skip
     board = Board.new
     assert board.board_array[0].none?
     5.times { board.add_token_to_board("A", "O") }
@@ -89,6 +90,20 @@ class BoardTest < Minitest::Test
     binding.pry
     assert board.column_full?(1)
     #return to truthy test
+  end
+
+  def test_board_full?
+    board = Board.new
+    # assert board.board_array[0].none?
+    ("A".."F").each do |letter|
+      6.times do
+        board.add_token_to_board(letter,"X")
+      end
+    end
+    5.times {board.add_token_to_board("G", "X")}
+    assert_equal false, board.board_full?
+    board.add_token_to_board("G", "O")
+    assert_equal true, board.board_full?
   end
 
 end
