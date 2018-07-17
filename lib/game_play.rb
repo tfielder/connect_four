@@ -119,7 +119,7 @@ class GamePlay
   end
 
   def check_board(winner)
-    if check_for_win(winner)
+    if check_for_win
       @continue_game = false
       return "Game Over! #{winner} won the game!"
     elsif check_for_draw
