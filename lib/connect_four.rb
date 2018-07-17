@@ -31,7 +31,7 @@ while game.continue_game == true
   #print the board
   puts game.return_board
   #check for win, #check for tie
-  game.check_board
+  game.check_board("Player 1")
   #prompt waiting message
   puts ""
   puts game.return_waiting_message
@@ -43,5 +43,5 @@ while game.continue_game == true
   #add computer move
   game.board.add_token_to_board(letter, "O")
   #check for win, #check for tie
-  game.check_board
+  game.check_board("The Computer")
 end

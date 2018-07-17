@@ -110,15 +110,23 @@ class GamePlay
 
   def check_for_win
     checks = [check_for_horizontal_win, check_for_vertical_win, check_for_right_diagonal_win, check_for_left_diagonal_win]
-    checks.any? {|element| element == true}
+    checks = checks.any? {|element| element == true}
   end
 
   def check_for_draw
     #can check for win first before draw.
-    
+
   end
 
   def check_board
-
+    if check_for_win(winner)
+      @continue_game = false
+      return "Game Over! #{winner} won the game!"
+    elsif check_for_draw
+      @continue_game = false
+      return "Game Over! This game was a draw."
+    else
+      return
+    end
   end
 end
