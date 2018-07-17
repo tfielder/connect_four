@@ -82,4 +82,73 @@ class GamePlayTest < Minitest::Test
     game = GamePlay.new(board)
     assert_equal "The board is full! Nobody wins. Would you like to play again?", game.return_draw_message
   end
+
+  def test_check_for_horizontal_win
+    board = Board.new
+    game = GamePlay.new(board)
+    assert_equal false, game.check_for_horizontal_win
+    4.times do
+      ("A".."D").each do |letter|
+        game.board.add_token_to_board(letter,"X")
+      end
+    end
+    assert_equal true, game.check_for_horizontal_win
+  end
+
+  def test_check_for_vertical_win
+    board = Board.new
+    game = GamePlay.new(board)
+    assert_equal false, game.check_for_vertical_win
+    4.times do
+      game.board.add_token_to_board("B","X")
+    end
+    assert_equal true, game.check_for_vertical_win
+  end
+
+  def test_check_for_right_diagonal_win
+    board = Board.new
+    game = GamePlay.new(board)
+    assert_equal false, game.check_for_right_diagonal_win
+    ("A".."D").each do |letter|
+      4.times do
+        game.board.add_token_to_board(letter,"X")
+      end
+    end
+    assert_equal true, game.check_for_right_diagonal_win
+  end
+
+  def test_check_for_left_diagonal_win
+    board = Board.new
+    game = GamePlay.new(board)
+    assert_equal false, game.check_for_left_diagonal_win
+    ("D".."G").each do |letter|
+      4.times do
+        game.board.add_token_to_board(letter,"X")
+      end
+    end
+    assert_equal true, game.check_for_left_diagonal_win
+  end
+
+  def test_for_check_for_win
+    board = Board.new
+    game = GamePlay.new(board)
+    assert_equal false, game.check_for_win
+    ("D".."G").each do |letter|
+      4.times do
+        game.board.add_token_to_board(letter,"X")
+      end
+    end
+    assert_equal true, game.check_for_win
+  end
+
+  def test_for_check_for_draw
+    board = Board.new
+    game = GamePlay.new(board)
+    
+  end
+
+  def test_for_check_board
+
+  end
+
 end
