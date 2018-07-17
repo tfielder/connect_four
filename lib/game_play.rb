@@ -67,11 +67,10 @@ class GamePlay
   end
 
   def check_for_horizontal_win
-    #go throught the board and iterate
     win = false
     (0..5).each do |row|
       (0..3).each do |column|
-        if @board[column][row] == @board[column + 1][row] && @board[column + 1][row] == @board[column + 2][row] && @board[column + 2][row] == @board[column + 3][row] && @board[column][row] != nil
+        if @board.board_array[column][row] != nil && @board.board_array[column][row] == @board.board_array[column + 1][row] && @board.board_array[column + 1][row] == @board.board_array[column + 2][row] && @board.board_array[column + 2][row] == @board.board_array[column + 3][row]
           win = true
         end
       end

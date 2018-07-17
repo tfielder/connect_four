@@ -89,7 +89,7 @@ class GamePlayTest < Minitest::Test
     assert_equal false, game.check_for_horizontal_win
     4.times do
       ("A".."D").each do |letter|
-        board.add_token_to_board(letter,"X")
+        game.board.add_token_to_board(letter,"X")
       end
     end
     assert_equal true, game.check_for_horizontal_win
