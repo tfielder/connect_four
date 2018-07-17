@@ -96,7 +96,13 @@ class GamePlayTest < Minitest::Test
   end
 
   def test_check_for_vertical_win
-
+    board = Board.new
+    game = GamePlay.new(board)
+    assert_equal false, game.check_for_vertical_win
+    4.times do
+        game.board.add_token_to_board("B","X")
+    end
+    assert_equal true, game.check_for_vertical_win
   end
 
   def test_check_for_diagonal_win
