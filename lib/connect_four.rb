@@ -3,6 +3,7 @@ require "./lib/board.rb"
 require "./lib/game_play.rb"
 ###initialize everything
 
+
 player = Player.new
 board = Board.new
 game = GamePlay.new(board)
@@ -13,9 +14,6 @@ game = GamePlay.new(board)
 #Welcome message
 print "\n"
 puts game.return_welcome_message
-
-
-#
 while game.continue_game == true
   #round loop . . . .
   #print board

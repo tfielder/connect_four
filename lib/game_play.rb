@@ -115,10 +115,10 @@ class GamePlay
 
   def check_for_draw
     #can check for win first before draw.
-
+    @board.board_full?
   end
 
-  def check_board
+  def check_board(winner)
     if check_for_win(winner)
       @continue_game = false
       return "Game Over! #{winner} won the game!"
