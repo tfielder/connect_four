@@ -138,6 +138,7 @@ class GamePlayTest < Minitest::Test
         game.board.add_token_to_board(letter,"X")
       end
     end
+    assert_equal true, game.check_for_win
   end
 
   def test_for_check_for_draw
