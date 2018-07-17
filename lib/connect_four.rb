@@ -31,11 +31,11 @@ while game.continue_game == true
   #print the board
   puts game.return_board
   #check for win, #check for tie
-
+  game.check_board
   #prompt waiting message
   puts ""
   puts game.return_waiting_message
-  sleep 5
+  sleep 3
   #computer selects
   letter = ('A'..'G').to_a.sample
   #validate computer move
@@ -43,5 +43,5 @@ while game.continue_game == true
   #add computer move
   game.board.add_token_to_board(letter, "O")
   #check for win, #check for tie
-
+  game.check_board
 end
