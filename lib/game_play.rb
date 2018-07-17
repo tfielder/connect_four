@@ -90,8 +90,28 @@ class GamePlay
     return win
   end
 
-  def check_for_diagonal_win
+  def check_for_right_diagonal_win
+    win = false
+    (0..2).each do |row|
+      (0..3).each do |column|
+        if @board.board_array[column][row] != nil && @board.board_array[column][row] == @board.board_array[column + 1][row + 1] && @board.board_array[column + 1][row + 1] == @board.board_array[column + 2][row + 2] && @board.board_array[column + 2][row + 2] == @board.board_array[column + 3][row + 3]
+          win = true
+        end
+      end
+    end
+    return win
+  end
 
+  def check_for_left_diagonal_win
+    win = false
+    (0..2).each do |row|
+      (3..6).each do |column|
+        if @board.board_array[column][row] != nil && @board.board_array[column][row] == @board.board_array[column - 1][row + 1] && @board.board_array[column - 1][row + 1] == @board.board_array[column - 2][row + 2] && @board.board_array[column - 2][row + 2] == @board.board_array[column - 3][row + 3]
+          win = true
+        end
+      end
+    end
+    return win
   end
 
   def check_for_draw
