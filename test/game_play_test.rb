@@ -144,7 +144,7 @@ class GamePlayTest < Minitest::Test
   def test_for_check_for_draw
     board = Board.new
     game = GamePlay.new(board)
-
+    
   end
 
   def test_for_check_board

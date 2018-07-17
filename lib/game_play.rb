@@ -115,7 +115,7 @@ class GamePlay
 
   def check_for_draw
     #can check for win first before draw.
-
+    
   end
 
   def check_board
