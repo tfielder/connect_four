@@ -86,6 +86,7 @@ class BoardTest < Minitest::Test
     5.times { board.add_token_to_board("A", "O") }
     refute board.column_full?(1)
     board.add_token_to_board("A", "X")
+    binding.pry
     assert board.column_full?(1)
     #return to truthy test
   end
