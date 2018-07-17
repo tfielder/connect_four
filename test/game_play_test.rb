@@ -130,7 +130,14 @@ class GamePlayTest < Minitest::Test
   end
 
   def test_for_check_for_win
-
+    board = Board.new
+    game = GamePlay.new(board)
+    assert_equal false, game.check_for_win
+    ("D".."G").each do |letter|
+      4.times do
+        game.board.add_token_to_board(letter,"X")
+      end
+    end
   end
 
   def test_for_check_for_draw

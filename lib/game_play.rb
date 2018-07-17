@@ -61,9 +61,9 @@ class GamePlay
   end
 
   def check_for_win
-    check_for_horizontal_win
-    check_for_vertical_win
-    check_for_diagonal_win
+    win = false
+    checks = [check_for_horizontal_win, check_for_vertical_win, check_for_right_diagonal_win, check_for_left_diagonal_win]
+    checks.any? {|element| element == true}
   end
 
   def check_for_horizontal_win
