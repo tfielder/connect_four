@@ -33,7 +33,7 @@ class GamePlayTest < Minitest::Test
   def test_requests_move
     board = Board.new
     game = GamePlay.new(board)
-    assert_equal "Player 1 it's your turn. You are X's. Choose a column between A and G and press Enter.", game.request_move
+    assert_equal "Player 1 it's your turn. You are X's. Choose a column between A and G and press Enter.", game.return_move_message
   end
 
   def test_gets_move
@@ -76,18 +76,6 @@ class GamePlayTest < Minitest::Test
     board = Board.new
     game = GamePlay.new(board)
     assert_equal "Sorry, that column is full. Try another.", game.return_column_full_message
-  end
-
-  def test_return_win_message
-    board = Board.new
-    game = GamePlay.new(board)
-    assert_equal "Player 1 wins!!! Would you like to play again?", game.return_win_message
-  end
-
-  def test_return_draw_message
-    board = Board.new
-    game = GamePlay.new(board)
-    assert_equal "The board is full! Nobody wins. Would you like to play again?", game.return_draw_message
   end
 
   def test_change_player
