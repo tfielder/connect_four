@@ -15,7 +15,7 @@ class GamePlay
   end
 
   def request_move
-    "Player 1 it's your turn.  Choose a column between A and G."
+    "Player 1 it's your turn.  Choose a column between A and G and press Enter."
   end
 
   def get_move

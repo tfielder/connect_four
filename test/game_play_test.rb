@@ -33,7 +33,7 @@ class GamePlayTest < Minitest::Test
   def test_requests_move
     board = Board.new
     game = GamePlay.new(board)
-    assert_equal "Player 1 it's your turn.  Choose a column between A and G.", game.request_move
+    assert_equal "Player 1 it's your turn.  Choose a column between A and G and press Enter.", game.request_move
   end
 
   def test_gets_move
@@ -144,7 +144,7 @@ class GamePlayTest < Minitest::Test
   def test_for_check_for_draw
     board = Board.new
     game = GamePlay.new(board)
-    
+
   end
 
   def test_for_check_board
