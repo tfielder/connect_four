@@ -1,9 +1,11 @@
 class GamePlay
-  attr_reader :board, :continue_game
+  attr_reader :board, :continue_game, :current_player, :player_token
 
   def initialize(board) #should you autoinitialize to not worry about implementation of new object?
     @board = board
     @continue_game = true
+    @current_player = "Player 1"
+    @player_token = "X"
   end
 
   def return_welcome_message
@@ -15,11 +17,16 @@ class GamePlay
   end
 
   def request_move
-    "Player 1 it's your turn.  Choose a column between A and G and press Enter."
+    "Player 1 it's your turn. You are X's. Choose a column between A and G and press Enter."
   end
 
   def get_move
-    gets.chomp.upcase
+    if @current_player == "Player 1"
+      gets.chomp.upcase
+    elsif @current_player == "The Computer"
+      sleep 3
+      return letter = ('A'..'G').to_a.sample
+    end
   end
 
   # def validate_move
@@ -41,10 +48,16 @@ class GamePlay
   #     return false
   #   end
   # end
-
-
   def return_waiting_message
     "It's the computer's turn. One moment please."
+  end
+
+  def return_instructions
+    if @current_player == "Player 1"
+      return request_move
+    elsif @current_player == "The Computer"
+      return return_waiting_message
+    end
   end
 
   def return_column_full_message
@@ -58,6 +71,22 @@ class GamePlay
 
   def return_draw_message
     "The board is full! Nobody wins. Would you like to play again?"
+  end
+
+  def change_player
+    if @current_player == "Player 1"
+      @current_player = "The Computer"
+    elsif @current_player == "The Computer"
+      @current_player = "Player 1"
+    end
+  end
+
+  def change_player_token
+    if @current_player == "Player 1"
+      @player_token = "X"
+    elsif @current_player == "The Computer"
+      @player_token = "O"
+    end
   end
 
   def check_for_horizontal_win
@@ -118,10 +147,10 @@ class GamePlay
     @board.board_full?
   end
 
-  def check_board(winner)
+  def check_board
     if check_for_win
       @continue_game = false
-      return "Game Over! #{winner} won the game!"
+      return "Game Over! #{@current_player} won the game!"
     elsif check_for_draw
       @continue_game = false
       return "Game Over! This game was a draw."
