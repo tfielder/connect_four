@@ -9,20 +9,15 @@ class BoardTest < Minitest::Test
     assert_instance_of Board, board
   end
 
-  def test_return_board
-    board = Board.new
-    returned_board = board.return_board
-    assert_equal "\nABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n", returned_board
-  end
-
   def test_has_board_array
     board = Board.new
     assert_equal Array.new(7){Array.new(6)}, board.board_array
   end
 
-  def test_initializes_board_array
+  def test_return_board
     board = Board.new
-    assert_equal Array.new(7){Array.new(6)}, board.board_array
+    returned_board = board.return_board
+    assert_equal "\nABCDEFG\n.......\n.......\n.......\n.......\n.......\n.......\n", returned_board
   end
 
   def test_adds_token_to_board
