@@ -2,7 +2,7 @@ require "minitest/autorun"
 require "minitest/pride"
 require "./lib/board.rb"
 require "./lib/game_play.rb"
-
+require "pry"
 
 class GamePlayTest < Minitest::Test
   def test_it_exists
@@ -33,7 +33,7 @@ class GamePlayTest < Minitest::Test
   def test_requests_move
     board = Board.new
     game = GamePlay.new(board)
-    assert_equal "Player 1 it's your turn.  Choose a column between A and G.", game.request_move
+    assert_equal "Player 1 it's your turn. You are X's. Choose a column between A and G and press Enter.", game.return_move_message
   end
 
   def test_gets_move
@@ -59,6 +59,13 @@ class GamePlayTest < Minitest::Test
 
   end
 
+  def test_returns_instructions
+    skip
+    board = Board.new
+    game = GamePlay.new(board)
+
+  end
+
   def test_returns_waiting_message
     board = Board.new
     game = GamePlay.new(board)
@@ -71,16 +78,14 @@ class GamePlayTest < Minitest::Test
     assert_equal "Sorry, that column is full. Try another.", game.return_column_full_message
   end
 
-  def test_return_win_message
+  def test_change_player
     board = Board.new
     game = GamePlay.new(board)
-    assert_equal "Player 1 wins!!! Would you like to play again?", game.return_win_message
-  end
-
-  def test_return_draw_message
-    board = Board.new
-    game = GamePlay.new(board)
-    assert_equal "The board is full! Nobody wins. Would you like to play again?", game.return_draw_message
+    assert_equal "Player 1", game.current_player
+    game.change_player
+    assert_equal "The Computer", game.current_player
+    game.change_player
+    assert_equal "Player 1", game.current_player
   end
 
   def test_check_for_horizontal_win
@@ -144,7 +149,7 @@ class GamePlayTest < Minitest::Test
   def test_for_check_for_draw
     board = Board.new
     game = GamePlay.new(board)
-    
+
   end
 
   def test_for_check_board

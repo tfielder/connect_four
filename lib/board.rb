@@ -4,7 +4,7 @@ class Board
   attr_reader :board_array
 
   def initialize
-    @board_array = initialize_board_array
+    @board_array = Array.new(7){Array.new(6)}
     @letter_to_array = {"A" => 0,
                         "B" => 1,
                         "C" => 2,
@@ -32,17 +32,13 @@ class Board
       board_string
   end
 
-  def initialize_board_array
-    Array.new(7){Array.new(6)}
-  end
-
   def add_token_to_board(column, token_type)
     column = change_letter_to_array_index(column)
     if !column_full?(column)
       row = find_first_nil_value(column)
       @board_array[column][row] = token_type
     else
-      return false  #double check to make sure needed
+      return false
     end
   end
 
