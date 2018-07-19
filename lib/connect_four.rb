@@ -17,7 +17,6 @@ while response == "Y".downcase
     puts "\n" + game.return_board + "\n"
     puts game.check_board
     game.change_player
-    game.change_player_token
   end
 
   puts "\n Would you like to play again? Press y then enter to start a new game or any other key to exit."
