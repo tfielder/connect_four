@@ -78,26 +78,14 @@ class GamePlayTest < Minitest::Test
     assert_equal "X", game.player_token
   end
 
-  # def test_move_valid?
-  #   board = Board.new
-  #   game = GamePlay.new(board)
-  #   assert game.move_valid?("A")
-  #   refute game.move_valid?("Q")
-  #   assert game.move_valid?("R")
-  #   assert_equal 0, 1
-  # end
-
-  def test_validate_move
-
+  def test_move_valid?
+    board = Board.new
+    game = GamePlay.new(board)
+    assert game.move_valid?("A")
+    assert game.move_valid?("a")
+    refute game.move_valid?("Q")
+    refute game.move_valid?("R")
   end
-
-
-
-
-
-
-
-
 
   def test_check_for_horizontal_win
     board = Board.new
@@ -160,11 +148,25 @@ class GamePlayTest < Minitest::Test
   def test_for_check_for_draw
     board = Board.new
     game = GamePlay.new(board)
-
+    game.change_player
+    ("A".."F").each do |letter|
+      6.times {game.board.add_token_to_board(letter,"O")}
+    end
+    5.times {game.board.add_token_to_board("G","O")}
+    assert_equal false, game.check_for_draw
+    game.board.add_token_to_board("G","O")
+    assert_equal true, game.check_for_draw
   end
 
   def test_for_check_board
-
+    board = Board.new
+    game = GamePlay.new(board)
+    ("D".."G").each do |letter|
+      4.times do
+        game.board.add_token_to_board(letter,"X")
+      end
+    end
+    assert_equal "Game Over! Player 1 won the game!", game.check_board
   end
 
 end

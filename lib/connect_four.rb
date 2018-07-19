@@ -11,8 +11,7 @@ while response == "Y".downcase
   puts "\n" + game.return_board + "\n"
   while game.continue_game == true
     puts game.return_instructions
-    column = game.get_move
-    #validate the move
+    column = game.get_valid_move
     game.board.add_token_to_board(column, game.player_token)
     puts "\n" + game.return_board + "\n"
     puts game.check_board
