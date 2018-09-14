@@ -8,5 +8,3 @@ Run ruby connect_four.rb in the terminal to play the game.
 
 Description:
 This program simulates the game of Connect Four with a computer as an opponent.
-
-![alt text](https://media.giphy.com/media/1sSWWMNnaZLlm/giphy.gif)
